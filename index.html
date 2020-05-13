@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="https://smtpjs.com/v3/smtp.js"></script>
+  <script src="./js/emailhandler.js"></script>
+  <script src="./js/cook.js"></script>
+  <script>
+
+   // delete_cookie("licensed");   
+    console.log("script running");
+    var cookies = localStorage;
+
+    licensed = false;
+    verified = false;
+    err = ""
+    for(let prop in cookies){
+      // console.log(prop);
+      // console.log(cookies[prop]);
+      if(prop==="licensed"){
+        verified = true;
+        if(cookies[prop]=="true"){
+          window.location = "./poems.html";                      
+        }
+        else{
+          err = "licensed not true";
+        }
+      }
+      }
+
+    if(!verified){
+      alert("Please Register!");
+      // console.log("please register");
+    }
+
+    
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="shortcut icon" type="image/png" href="img/poetry.png" >
+  <title>Register Account</title>
+</head>
+<body>
+  <main style=" height:100vh; margin: 1px; border: 2px solid aqua;display: block;background: rgb(63, 32, 93); padding: 20px;">
+
+    <form id="form">
+      <legend>Register Your Product</legend>
+          <input type="email" name="email" id="email" placeholder="email...">
+          <input type="text" name="key" id="key" placeholder="10digit key...">
+          <input type="button" id="button" value="Validate" onclick="validateKey()">
+          <div id="loader" class="loader"></div>
+    </form>
+  </main>  
+</body>
+</html>
